@@ -79,7 +79,7 @@ in Stoic philosophy...
 
 Archetype: The Strategic Explorer
 
-MBTI Alignment (Personalities User Likes):
+MBTI Alignment (Personalities User Aligns With):
 INFJ: 0.627, INTJ: 0.585, ENFJ: 0.580, ISFJ: 0.580, INFP: 0.511
 
 Critical Instruction:

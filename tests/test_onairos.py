@@ -193,7 +193,7 @@ class TestOnairosPersonaInjector(unittest.IsolatedAsyncioTestCase):
         self.assertIn("User Summary:", augmentation)
         self.assertIn("tech enthusiast", augmentation)
         self.assertIn("Archetype: Strategic Explorer", augmentation)
-        self.assertIn("MBTI Alignment (Personalities User Likes):", augmentation)
+        self.assertIn("MBTI Alignment (Personalities User Aligns With):", augmentation)
         self.assertIn("INFJ", augmentation)
         self.assertIn("Critical Instruction:", augmentation)
 

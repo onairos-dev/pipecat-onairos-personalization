@@ -37,7 +37,7 @@ Example augmented prompt:
 
     Archetype: The Strategic Explorer
 
-    MBTI Alignment (Personalities User Likes):
+    MBTI Alignment (Personalities User Aligns With):
     INFJ: 0.627, INTJ: 0.585, ENFJ: 0.580
 
     Critical Instruction:
@@ -477,7 +477,7 @@ class OnairosPersonaInjector(FrameProcessor):
             sorted_mbti = sorted(mbti.items(), key=lambda x: x[1], reverse=True)
             top_mbti = sorted_mbti[: self._params.top_mbti_count]
             mbti_str = ", ".join([f"{k}: {v:.3f}" for k, v in top_mbti])
-            sections.append(f"MBTI Alignment (Personalities User Likes):\n{mbti_str}")
+            sections.append(f"MBTI Alignment (Personalities User Aligns With):\n{mbti_str}")
 
         # Critical Instruction
         if self._params.critical_instruction:

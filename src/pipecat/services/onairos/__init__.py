@@ -28,7 +28,7 @@ Example augmented prompt:
 
     Archetype: The Strategic Explorer
 
-    MBTI Alignment (Personalities User Likes):
+    MBTI Alignment (Personalities User Aligns With):
     INFJ: 0.627, INTJ: 0.585, ENFJ: 0.580
 
     Critical Instruction:
