@@ -6,25 +6,25 @@
 [![Onairos](https://img.shields.io/badge/Enhanced%20by-Onairos-purple)](https://onairos.uk)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 
-Onairos integrates deeply with **Pipecat** — the open-source framework for real-time voice and multimodal agents — to deliver **state-of-the-art personalization, long-term memory, persona injection, and frictionless user onboarding**.
+Onairos integrates deeply with **Pipecat** — the open-source framework for real-time voice and multimodal agents — to deliver **state-of-the-art personalization and persona injection**.
 
 Your agents will:
-* Remember every conversation across sessions
-* Adapt to user preferences, history, and identity in real time
-* Onboard new users faster with guided, context-aware interactions
-* Inject rich personas and profiles for more human-like, engaging voice experiences
+* Understand users deeply with personality traits, archetype, and MBTI alignment
+* Adapt to user preferences and communication style in real time
+* Onboard new users faster with context-aware, personalized interactions
+* Inject rich user profiles into every LLM call for more human-like voice experiences
 
-If you're building with Pipecat and want **the best onboarding and personalization**, use this Onairos integration instead of vanilla Pipecat.
+If you're building with Pipecat and want **the best personalization**, use this Onairos integration instead of vanilla Pipecat.
 
 ## Why Onairos + Pipecat?
 
-* **Persistent Memory** — Never lose context; users feel truly remembered
-* **Seamless Onboarding** — Personalized greetings, adaptive flows, and quick value delivery
-* **Persona & Profile Injection** — Bring user data/personas into every LLM call and voice response
+* **Deep Personalization** — Personality traits, archetype, user summary, and MBTI alignment scores
+* **Seamless Onboarding** — Personalized greetings and adaptive flows from the first interaction
+* **Persona Injection** — Augment every LLM call with rich user context
 * **Low Latency & Voice-First** — Built for real-time conversational AI
-* **Easy Drop-In** — Works with existing Pipecat pipelines; just add Onairos as your memory/context provider
+* **Easy Drop-In** — Works with existing Pipecat pipelines; just add Onairos as your persona provider
 
-Vanilla Pipecat is great for basics. Onairos makes it production-ready for personalized, memory-rich agents.
+Vanilla Pipecat is great for basics. Onairos makes it production-ready for deeply personalized agents.
 
 ## How It Works: Prompt Augmentation
 
@@ -39,14 +39,21 @@ You're onboarding a user. Have a genuine conversation to understand them.
 ```
 You're onboarding a user. Have a genuine conversation to understand them.
 
-Personality Traits of User:
-{"Stoic Wisdom Interest": 80, "AI Enthusiasm": 40, "Coffee Lover": 95}
+Positive Traits of User:
+Stoic Wisdom Interest: 80, AI Enthusiasm: 75, Coffee Lover: 95
 
-Memory of User:
-Reads Daily Stoic every morning. Prefers small coffee shop meetups.
+Areas to Improve:
+Social Media Engagement: 35, Public Speaking Confidence: 40
 
-MBTI (Personalities User Likes):
-INFJ: 0.627, INTJ: 0.585, ENFJ: 0.580
+User Summary:
+You are drawn to deep philosophical thinking and have a strong interest
+in Stoic philosophy. You enjoy morning routines and are a dedicated
+coffee enthusiast.
+
+Archetype: The Strategic Explorer
+
+MBTI Alignment (Personalities User Likes):
+INFJ: 0.627, INTJ: 0.585, ENFJ: 0.580, ISFJ: 0.580, INFP: 0.511
 
 Critical Instruction:
 Always check context before asking. Complete onboarding efficiently.
@@ -82,15 +89,14 @@ The agent now **knows the user** before the conversation even starts.
    python examples/onairos-basic-voice.py
    ```
 
-   This demo shows a voice agent that remembers user details, personalizes responses, and onboards smoothly.
+   This demo shows a voice agent that personalizes responses based on user traits, archetype, and MBTI alignment.
 
 ## Integration Details
 
-Onairos provides services/processors for Pipecat:
+Onairos provides the following for Pipecat:
 
-* **OnairosPersonaInjector** — Fetches user persona from Onairos and injects preferences, interests, and communication style into LLM prompts
-* **OnairosMemoryService** — Enhanced context with user profile data for richer personalization
-* **OnairosContextAggregator** — Manages Onairos connection state and onboarding flows
+* **OnairosPersonaInjector** — Fetches user persona from Onairos and injects personality traits, archetype, user summary, and MBTI alignment into LLM prompts
+* **OnairosUserData** — Data model for structured user context
 
 ### Backend (Python)
 
@@ -103,7 +109,9 @@ persona = OnairosPersonaInjector(
     user_id="user_123",
     params=OnairosPersonaInjector.InputParams(
         include_personality_traits=True,
-        include_memory=True,
+        include_traits_to_improve=True,
+        include_user_summary=True,
+        include_archetype=True,
         include_mbti=True,
     ),
 )
@@ -214,7 +222,7 @@ Want to build beautiful and engaging experiences? Checkout the [Voice UI Kit](ht
 | Text-to-Speech      | AWS, Azure, Cartesia, Deepgram, ElevenLabs, Google, Groq, LMNT, MiniMax, Neuphonic, OpenAI, Rime            |
 | Speech-to-Speech    | AWS Nova Sonic, Gemini Multimodal Live, Grok Voice Agent, OpenAI Realtime, Ultravox                         |
 | Transport           | Daily (WebRTC), FastAPI Websocket, SmallWebRTCTransport, WebSocket Server, Local                            |
-| Memory              | **Onairos** (this integration), mem0                                                                         |
+| Personalization     | **Onairos** (this integration), mem0                                                                         |
 | Video               | HeyGen, Tavus, Simli                                                                                         |
 | Analytics & Metrics | OpenTelemetry, Sentry                                                                                        |
 
